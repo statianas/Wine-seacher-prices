@@ -1,0 +1,39 @@
+Chianti 2020; https://www.vivino.com/IT/en/piccini-chianti-2020/w/1598405; https://www.wine-searcher.com/find/piccini+chianti/2020/#t4; 
+	var msDocs = {
+		data: {
+			timeOrigin: Date.now(),
+			contentLocale: 'ru-ru',
+			contentDir: 'ltr',
+			userLocale: 'ru-ru',
+			userDir: 'ltr',
+			pageTemplate: 'Conceptual',
+			brand: '',
+			context: {
+			},
+			hasBinaryRating: true,
+			hasGithubIssues: false,
+			showFeedbackReport: false,
+			enableTutorialFeedback: false,
+			feedbackSystem: 'None',
+			feedbackGitHubRepo: '',
+			extendBreadcrumb: false,
+			isEditDisplayable: false,
+			hideViewSource: false,
+			hasPageActions: true,
+			hasBookmark: true,
+			hasShare: true,
+			hasRecommendations: true,
+			contributors: [
+						{ name: "BillWagner", url: "https://github.com/BillWagner" }
+],
+			mathjax: {
+			},
+		},
+		functions:{}
+	};
+	
+Chianti 2020; https://www.vivino.com/IT/en/piccini-chianti-2020/w/1598405; https://www.wine-searcher.com/find/piccini+chianti/2020/#t4; 
+Chianti 2020; https://www.vivino.com/IT/en/piccini-chianti-2020/w/1598405; https://www.wine-searcher.com/find/piccini+chianti/2020/#t4; 
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://spectrox.ru/strikethrough/"},"description":"Блог веб-разработчика. Все мнения мои собственные.","url":"https://spectrox.ru/strikethrough/","@type":"BlogPosting","headline":"Перечёркнутый текст / Strikethrough text","dateModified":"2011-02-26T01:48:50+00:00","datePublished":"2011-02-26T01:48:50+00:00","@context":"https://schema.org"}
+Chianti 2020; https://www.vivino.com/IT/en/piccini-chianti-2020/w/1598405; https://www.wine-searcher.com/find/piccini+chianti/2020/#t4; ---
+Chianti 2020; https://www.vivino.com/IT/en/piccini-chianti-2020/w/1598405; https://www.wine-searcher.com/find/piccini+chianti/2020/#t4; ---
