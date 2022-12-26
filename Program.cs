@@ -57,14 +57,14 @@ string pathPageLogin = "https://www.wine-searcher.com/sign-in?pro_redirect_url_F
 
 
 
-/* для получени прокси с кода на питоне
+/* Г¤Г«Гї ГЇГ®Г«ГіГ·ГҐГ­ГЁ ГЇГ°Г®ГЄГ±ГЁ Г± ГЄГ®Г¤Г  Г­Г  ГЇГЁГІГ®Г­ГҐ
 
-//ProcessStartInfo startInfo = new ProcessStartInfo("C:/Users/Таня/AppData/Local/Programs/Python/Python39/python.exe");
-ProcessStartInfo startInfo = new ProcessStartInfo("C:/Users/Таня/PycharmProjects/parser_example/venv/Scripts/python.exe");
+//ProcessStartInfo startInfo = new ProcessStartInfo("C:/Users/Г’Г Г­Гї/AppData/Local/Programs/Python/Python39/python.exe");
+ProcessStartInfo startInfo = new ProcessStartInfo("C:/Users/Г’Г Г­Гї/PycharmProjects/parser_example/venv/Scripts/python.exe");
 
 Process process = new Process();
 
-string directory = @"C:\\Users\\Таня\\PycharmProjects\\parser_example";
+string directory = @"C:\\Users\\Г’Г Г­Гї\\PycharmProjects\\parser_example";
 string script = "for_proxy.py";
 
 startInfo.WorkingDirectory = directory;
@@ -102,7 +102,7 @@ var handler = new HttpClientHandler
 
 var config = Configuration.Default.WithDefaultLoader().WithCookies();
  
-//с прокси
+//Г± ГЇГ°Г®ГЄГ±ГЁ
 
 /*
 
@@ -145,12 +145,12 @@ Thread.Sleep(3000);
 //Console.Write(queryDocument.DocumentElement.OuterHtml);
 
 
-//авторизация
+//Г ГўГІГ®Г°ГЁГ§Г Г¶ГЁГї
 
 
-browsingContext.Active.QuerySelector<IHtmlInputElement>("#loginmodel-username").Value = "antonskrobotov@gmail.com";
+browsingContext.Active.QuerySelector<IHtmlInputElement>("#loginmodel-username").Value = "login";
 Thread.Sleep(1000);
-browsingContext.Active.QuerySelector<IHtmlInputElement>("#loginmodel-password").Value = "s64_ftYn8";
+browsingContext.Active.QuerySelector<IHtmlInputElement>("#loginmodel-password").Value = "password";
 Thread.Sleep(1000);
 var form = queryDocument.QuerySelector<IHtmlFormElement>("#loginsmallform");
 var resultDocument = await form.SubmitAsync();
@@ -189,9 +189,9 @@ for (int i = 171; i< N; i++)
         browsingContext = BrowsingContext.New(config);
         queryDocument = await browsingContext.OpenAsync(pathPageLogin);
         Thread.Sleep(3000);
-        browsingContext.Active.QuerySelector<IHtmlInputElement>("#loginmodel-username").Value = "antonskrobotov@gmail.com";
+        browsingContext.Active.QuerySelector<IHtmlInputElement>("#loginmodel-username").Value = "login";
         Thread.Sleep(1000);
-        browsingContext.Active.QuerySelector<IHtmlInputElement>("#loginmodel-password").Value = "s64_ftYn8";
+        browsingContext.Active.QuerySelector<IHtmlInputElement>("#loginmodel-password").Value = "password";
         Thread.Sleep(1000);
         form = queryDocument.QuerySelector<IHtmlFormElement>("#loginsmallform");
         resultDocument = await form.SubmitAsync();
@@ -233,7 +233,7 @@ Console.Write("Fourth");
 
 
 
-/* для проверки ip
+/* Г¤Г«Гї ГЇГ°Г®ГўГҐГ°ГЄГЁ ip
 string url2 = "https://www.myip.com/";
 IDocument doc = await browsingContext.OpenAsync(url2);
 Console.Write(doc.DocumentElement.OuterHtml);
