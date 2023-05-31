@@ -25,7 +25,7 @@ using CsvHelper.Configuration;
 using IronXL;
 using System.Data;
 
-IronXL.License.LicenseKey = "IRONXL.TANYA252002.24702-EEFDEB54B7-FATUKQ-KFNL25VVTEDS-52XUXW44D23K-RNTSLUS6GEAJ-JJCF6WS4JALC-CPLOOAINBCYQ-FYBHWN-TL3RNYS4T6SHEA-DEPLOYMENT.TRIAL-3KK4ZX.TRIAL.EXPIRES.17.SEP.2022";
+IronXL.License.LicenseKey = "IRONXL.ST087048.10109-DF8F51A91B-PIWRGQZSLFGW2-YM67G3QJ5EJP-7YZVZ2FVTQGC-Z7CJ3DUFS2JI-RWTF6KQXWR64-ZW6GEV-TIUM7LDBXMOJUA-DEPLOYMENT.TRIAL-GQ6OJG.TRIAL.EXPIRES.25.MAY.2023";
 DataTable ReadExcel(string fileName)
 {
     WorkBook workbook = WorkBook.Load(fileName);
@@ -41,7 +41,6 @@ DataTable ReadCSVData(string csvFileName)
 }
 
 var csvFilereader = ReadCSVData("data2.csv");
-
 
 
 //using AngleSharp.Io.Network;
@@ -163,26 +162,45 @@ var resultDocument = await form.SubmitAsync();
 
 
 string fourth = "";
-int N = 262;
+int N = 6;
 
-for (int i = 171; i< N; i++)
+//for (int i =(N-1)*600; i< N*600 + 1; i++)
+for (int i = 3399; i < N * 600 + 1; i++)
 {
     WorkBook wb = WorkBook.Load("file.xlsx");
     WorkSheet ws = wb.GetWorkSheet("Sheet1");
-    ws.Rows[i+1].Columns[0].Value = csvFilereader.Rows[i][0].ToString();
-    ws.Rows[i+1].Columns[1].Value = csvFilereader.Rows[i][1].ToString();
+    ws.Rows[i+1 - (N - 1) * 600].Columns[0].Value = csvFilereader.Rows[i][0].ToString(); // справа табл начин с 0 (вина)
+    ws.Rows[i+1- (N - 1) * 600].Columns[1].Value = csvFilereader.Rows[i][1].ToString();
     string link_ws = csvFilereader.Rows[i][2].ToString();
-    ws.Rows[i+1].Columns[2].Value = link_ws;
+    ws.Rows[i+1- (N - 1) * 600].Columns[2].Value = link_ws;
     await browsingContext.OpenAsync(link_ws); 
 
     //https://spectrox.ru/strikethrough/
     try
     {
         fourth = browsingContext.Active.QuerySelectorAll("script")[3].Text();//3
+        int firstindex = fourth.IndexOf("var ex = this.yAxis[0].getExtremes();");
+        int lastindex = fourth.LastIndexOf("var ex = this.yAxis[0].getExtremes();");
+        if (firstindex > 0 && lastindex > 0 && firstindex != lastindex)
+        {
+            fourth = fourth.Substring(firstindex + "var ex = this.yAxis[0].getExtremes();".Length, lastindex - firstindex);
+            firstindex = fourth.IndexOf("var ex = this.yAxis[0].getExtremes();");
+            if (firstindex > 0) {
+                fourth = fourth.Substring(0, firstindex);
+                //Console.Write(fourth);
+
+            }
+
+        }
+        /*
+         int firstindex = fourth.IndexOf("var ex = this.yAxis[0].getExtremes();");
+         int lastindex = fourth.LastIndexOf("var ex = this.yAxis[0].getExtremes();");
+         fourth = fourth.Substring(firstindex, lastindex);
+     */
     }
     catch (System.ArgumentOutOfRangeException e) {
 
-        ws.Rows[i+1].Columns[3].Value = "---";
+        ws.Rows[i+1- (N - 1) * 600].Columns[3].Value = "---";
         wb.SaveAs("file.xlsx");
         Thread.Sleep(360000);
         config = Configuration.Default.WithDefaultLoader().WithCookies();
@@ -197,8 +215,9 @@ for (int i = 171; i< N; i++)
         resultDocument = await form.SubmitAsync();
         continue;
     }
+    
     if (fourth.Length == 0) fourth = "---";
-    ws.Rows[i+1].Columns[3].Value = fourth;
+    ws.Rows[i+1- (N - 1) * 600].Columns[3].Value = fourth;
     wb.SaveAs("file.xlsx");
     Console.Write("Step num ", i);
     Thread.Sleep(360000);
